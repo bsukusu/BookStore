@@ -60,6 +60,28 @@
     <li class="nav-item">
       <a class="nav-link" href="{{route('Delete')}}">Delete</a>
     </li>
+
+      <form class="form-create" action="" method="POST">
+          @csrf
+
+          <label for="inputBookName" class="sr-only">Book Name </label>
+          <input type="text" id="inputBookName" name="book_name" class="form-control" placeholder="Book Name" required>
+
+          <label for="inputAuthorName" class="sr-only">Author Name </label>
+          <input type="text" id="inputAuthorName" name="author_name" class="form-control" placeholder="Author Name" required>
+
+          <label for="inputibsn" class="sr-only">Book Ibsn </label>
+          <input type="text" id="inputibsn" name="book_ibsn" class="form-control" placeholder="Book Ibsn" required>
+
+  <div class="form-check mb-3">
+  <div class="mb-3">
+    <input type="file" class="form-control" aria-label="file example" required>
+  </div>
+  <div class="mb-3">
+    <button class="btn btn-primary" type="submit" disabled>Submit form</button>
+  </div>
+</div>
+</form>
 </body>
 
 </html>

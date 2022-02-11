@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admincontrol;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CrudOperator;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,10 @@ use App\Http\Controllers\AuthController;
 
 Route::get('/homepage', function(){return view('homepage');})->name('homepage');
 Route::get('/booklist', function(){return view('booklist');})->name('booklist');
-Route::POST("/adminpanel", [Admincontrol::class,'admin'])->name('adminpanel');
+
+
+Route::get("/adminpanel", [Admincontrol::class,'admin'])->name('adminpanel');
+Route::get("/logout",[Admincontrol::class,'logout'])->name('logout');
+Route::get("/AdminCrudInsert",[CrudOperator::class,'create'])->name('Insert');
+Route::get("/AdminCrudUpdate",[CrudOperator::class,'update'])->name('Update');
+Route::get("/AdminCrudDelete",[CrudOperator::class,'delete'])->name('Delete');

@@ -58,7 +58,7 @@
       <a class="nav-link" href="{{route('Update')}}">Update</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{route('Delete')}}">Delete</a>
+      <a class="nav-link" href="{{route('delete')}}">Login</a>
     </li>
 </body>
 

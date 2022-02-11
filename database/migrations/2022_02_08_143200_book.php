@@ -17,8 +17,7 @@ class Book extends Migration
             $table->id();
             $table->string('book_name');
             $table->integer('book_ibsn');
-            $table->integer('page');
-            $table->longtext('abstract')->nullable();
+            $table->string('author_name');
             $table->string('image');
             $table->timestamps();
         });
