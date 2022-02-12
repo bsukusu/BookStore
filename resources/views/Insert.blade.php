@@ -61,6 +61,13 @@
       <a class="nav-link" href="{{route('Delete')}}">Delete</a>
     </li>
 </nav>
+        @if($errors->any())
+          <ul>
+            @foreach ($errors->all() as $bookerror)
+              <li> {{$bookerror}} </li>
+            @endforeach
+          </ul>
+        @endif
       <form class="form-create" action="{{route('BookCreate')}}" method="POST">
           @csrf
 
