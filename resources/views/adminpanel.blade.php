@@ -14,7 +14,7 @@
     <ul class="navbar-nav">
       @guest
       <li class="nav-item">
-        <a class="nav-link" href="{{route('homepage')}}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{route('homepage')}}">Home <span class="sr-only"></span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{route('register')}}">Register</a>

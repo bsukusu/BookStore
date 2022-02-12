@@ -60,8 +60,15 @@
     <li class="nav-item">
       <a class="nav-link" href="{{route('Delete')}}">Delete</a>
     </li>
-
-      <form class="form-create" action="" method="POST">
+</nav>
+        @if($errors->any())
+          <ul>
+            @foreach ($errors->all() as $bookerror)
+              <li> {{$bookerror}} </li>
+            @endforeach
+          </ul>
+        @endif
+      <form class="form-create" action="{{route('BookCreate')}}" method="POST">
           @csrf
 
           <label for="inputBookName" class="sr-only">Book Name </label>
@@ -75,10 +82,10 @@
 
   <div class="form-check mb-3">
   <div class="mb-3">
-    <input type="file" class="form-control" aria-label="file example" required>
+    <input type="file" name=image class="form-control" aria-label="file example" required>
   </div>
   <div class="mb-3">
-    <button class="btn btn-primary" type="submit" disabled>Submit form</button>
+    <button type="submit">Create</button>
   </div>
 </div>
 </form>

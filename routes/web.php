@@ -27,5 +27,6 @@ Route::get('/booklist', function(){return view('booklist');})->name('booklist');
 Route::get("/adminpanel", [Admincontrol::class,'admin'])->name('adminpanel');
 Route::get("/logout",[Admincontrol::class,'logout'])->name('logout');
 Route::get("/AdminCrudInsert",[CrudOperator::class,'create'])->name('Insert');
+Route::post("/AdminCrudInsert",[CrudOperator::class,'bookcreate'])->name('BookCreate');
 Route::get("/AdminCrudUpdate",[CrudOperator::class,'update'])->name('Update');
 Route::get("/AdminCrudDelete",[CrudOperator::class,'delete'])->name('Delete');
