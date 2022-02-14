@@ -28,11 +28,6 @@
           {{auth()->user()->name}}
         </a>
       </li>
-      <!--<li class="nav-item">
-        <a class="nav-link" href="javascript:void(0)" onclick="event.preventDefault();
-        document.getElementById('LogoutForm').submit();">
-        Logout
-      </a> -->
       <form action="{{route('logout')}}" id="LogoutForm" method="POST">
         @csrf
         <li class="nav-item">
@@ -54,12 +49,44 @@
     <li class="nav-item">
       <a class="nav-link" href="{{route('Insert')}}">Insert</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{{route('Update')}}">Update</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="{{route('Delete')}}">Delete</a>
-    </li>
+
+            <div class="panel-body">
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                        <table width=100%>
+                            <tr bgcolor="#FFFF00">
+                            <td align="center"><strong>Kitap Ad</strong></td>
+                            <td align="center"><strong>Yazar Ad</strong></td>
+                            <td align="center"><strong>Isbn Numara</strong></td>
+                            <td align="center"><strong>Fotoğraf</strong></td>
+                          </tr>
+                            @foreach ($books as $book)
+                              <tr height="10">
+                                <tr bgcolor="#FFFF00">
+                                <td align="center"> {{$book->book_name}}</td>
+                                <td align="center"> {{$book->author_name}}</td>
+                                <td align="center"> {{$book->book_ibsn}}</td>
+                                <td align="center" {{$book->image}} </td>
+                                <td align="center">
+                                  @if(isset($book->image))
+                                    <img align="center" src="{{asset($book->image)}}" width="50">
+                                  @endif
+                                </td>
+                                <td>
+                                  <a class="btn btn-primary" href="{{route('update', $book->id)}}" >
+                                    Update </a>
+                                <td>
+                                  <form action="" method="POST">
+                                    @csrf
+                                    <button class="btn btn-danger" type="submit" href="{{route('delete')}}"> Sil </button>
+                                  </form>
+                              </tr>
+                            @endforeach
+                        </table>
+                    </div>
 </body>
 
 </html>

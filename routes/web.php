@@ -20,12 +20,18 @@ use App\Http\Controllers\BookController;
 //});
 
 Route::get('/homepage', function(){return view('homepage');})->name('homepage');
+Route::get("/booklist",[BookController::class,'show'])->name('show');
 Route::get('/booklist', function(){return view('booklist');})->name('booklist');
 
-
+//Admin kısmı
 Route::get("/adminpanel", [Admincontrol::class,'admin'])->name('adminpanel');
+Route::get("/adminpanel", [BookController::class,'bookshow'])->name('adminpanel');
 Route::get("/logout",[Admincontrol::class,'logout'])->name('logout');
+
+//CRUD
 Route::get("/BookCreate",[BookController::class,'create'])->name('Insert');
 Route::post("/BookCreate",[BookController::class,'bookcreate'])->name('book-create');
-Route::get("/AdminCrudUpdate",[BookController::class,'update'])->name('Update');
-Route::get("/AdminCrudDelete",[BookController::class,'delete'])->name('Delete');
+Route::get("/BookUpdate",[BookController::class,'update'])->name('update');
+Route::get("/BookUpdate", function(){return view('Update');})->name('update');
+Route::get("/BookUpdatePage",[BookController::class,'update'])->name('BookUpdate');
+Route::get("/bookdelete",[BookController::class,'destroy'])->name('delete');

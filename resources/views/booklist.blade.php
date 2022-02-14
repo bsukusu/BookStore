@@ -31,13 +31,39 @@
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase" href="{{route('homepage')}}">Home</a></li>
-
-                        <!--<li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="">Register</a></li> -->
-
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{route('booklist')}}">Book List</a></li>
-
-                        <!--<li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="">Sign In</a></li> -->
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="">Book List</a></li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="{{route('register')}}">Register</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="{{route('login')}}">Login</a>
                     </ul>
                 </div>
             </div>
         </nav>
+
+        <div class="panel-body">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    <table width=100%>
+                      <tr height="10">
+                        <tr bgcolor="white">
+                        <td align="center"><strong>Kitap Ad</strong></td>
+                        <td align="center"><strong>Yazar Ad</strong></td>
+                        <td align="center"><strong>Isbn Numara</strong></td>
+                      </tr>
+                        @foreach ($books as $book)
+                            <tr bgcolor="white">
+                            <td align="center"> {{$book->book_name}}</td>
+                            <td align="center"> {{$book->author_name}}</td>
+                            <td align="center" height=50> {{$book->book_ibsn}}</td>
+                          </tr>
+                        @endforeach
+                    </table>
+                </div>
+
+</body>
+</html>
