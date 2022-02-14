@@ -14,7 +14,7 @@
     <ul class="navbar-nav">
       @guest
       <li class="nav-item">
-        <a class="nav-link" href="{{route('homepage')}}">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="{{route('homepage')}}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{route('register')}}">Register</a>
@@ -58,7 +58,7 @@
       <a class="nav-link" href="{{route('Update')}}">Update</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{route('Delete')}}">Delete</a>
+      <a class="nav-link" href="{{route('delete')}}">Login</a>
     </li>
 </body>
 

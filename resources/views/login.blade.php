@@ -49,15 +49,14 @@
 					Account Login
 				</span>
         <form class="form-login" action="{{route('login')}}" method="POST">
-                  @csrf
+          @csrf
+        <label for="inputEmail" class="sr-only">Email adress </label>
+        <input type="text" id="inputEmail" name="email" class="form-control" placeholder="Email adress" required>
 
-                  <label for="inputEmail" class="sr-only">Email adress </label>
-                  <input type="text" id="inputEmail" name="email" class="form-control" placeholder="Email adress" required>
+        <label for="inputPassword" class="sr-only">Password </label>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
 
-                  <label for="inputPassword" class="sr-only">Password </label>
-                  <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
-
-                  <input name="login" id="login" class="btn btn-lg btn-primary btn-block" type="submit" value="login"> </button>
+        <input name="login" id="login" class="btn btn-lg btn-primary btn-block" type="submit" value="login"> </button>
       	</form>
 			</div>
 		</div>

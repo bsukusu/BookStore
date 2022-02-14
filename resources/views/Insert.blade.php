@@ -14,7 +14,7 @@
     <ul class="navbar-nav">
       @guest
       <li class="nav-item">
-        <a class="nav-link" href="{{route('homepage')}}">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="{{route('homepage')}}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{route('register')}}">Register</a>
@@ -60,6 +60,35 @@
     <li class="nav-item">
       <a class="nav-link" href="{{route('Delete')}}">Delete</a>
     </li>
+</nav>
+        @if($errors->any())
+          <ul>
+            @foreach ($errors->all() as $bookError)
+              <li> {{$bookError}} </li>
+            @endforeach
+          </ul>
+        @endif
+      <form class="form-create" action="{{route('book-create')}}" method="POST">
+          @csrf
+
+          <label for="inputBookName" class="sr-only">Book Name </label>
+          <input type="text" id="inputBookName" name="book_name" class="form-control" placeholder="Book Name" required>
+
+          <label for="inputAuthorName" class="sr-only">Author Name </label>
+          <input type="text" id="inputAuthorName" name="author_name" class="form-control" placeholder="Author Name" required>
+
+          <label for="inputibsn" class="sr-only">Book Ibsn </label>
+          <input type="text" id="inputibsn" name="book_ibsn" class="form-control" placeholder="Book Ibsn" required>
+
+  <div class="form-check mb-3">
+  <div class="mb-3">
+    <input type="file" name=image class="form-control" aria-label="file example" required>
+  </div>
+  <div class="mb-3">
+    <button type="submit">Create</button>
+  </div>
+</div>
+</form>
 </body>
 
 </html>

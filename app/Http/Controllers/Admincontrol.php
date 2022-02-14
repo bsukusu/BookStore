@@ -6,8 +6,13 @@ use Illuminate\Http\Request;
 
 class Admincontrol extends Controller
 {
-    function admin()
+    public function admin()
     {
       return view('adminpanel');
+    }
+
+    public function logout()
+    {
+      return view('logout');
     }
 }
