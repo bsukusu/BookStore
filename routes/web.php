@@ -6,7 +6,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BookController;
 
 /*
-|--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |3
