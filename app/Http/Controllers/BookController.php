@@ -28,9 +28,8 @@ class BookController extends Controller
       ] );
     }
 
-        public function update(BookRequest $request)
+        public function update(BookRequest $request, Book $book)
            {
-                   $book = Book::find($id);
                    $book->book_name = $request->book_name;
                    $book->author_name = $request->author_name;
                    $book->book_ibsn = $request->isbn_number;
@@ -40,7 +39,11 @@ class BookController extends Controller
                        $book->image = 'uploads/'.$imageName;
                    }
                    $book->save();
-                   return redirect()->back();
+                   return redirect('adminpanel');
+           }
+           public function updateform(Book $book)
+           {
+             return view('update',compact('book'));
            }
            public function show()
       {

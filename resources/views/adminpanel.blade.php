@@ -76,12 +76,12 @@
                                   @endif
                                 </td>
                                 <td>
-                                  <a class="btn btn-primary" href="{{route('update', $book->id)}}" >
+                                  <a class="btn btn-primary" href="{{route('updateform', $book->id)}}" >
                                     Update </a>
                                 <td>
                                   <form action="" method="POST">
                                     @csrf
-                                    <button class="btn btn-danger" type="submit" href="{{route('delete')}}"> Sil </button>
+                                    <button class="btn btn-danger" type="submit" href="{{route('delete',$book->id)}}"> Sil </button>
                                   </form>
                               </tr>
                             @endforeach

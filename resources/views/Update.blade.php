@@ -18,7 +18,7 @@
                       @endforeach
                   </div>
 
-            <form method="post" action="{{url('/update',$book->id)}}" enctype="multipart/form-data">
+            <form method="post" action="{{route('update',[$book->id])}}" enctype="multipart/form-data">
                 <table align = "center">
                   {{ method_field('PUT') }}
                   {{ csrf_field() }}
@@ -28,10 +28,10 @@
                   <label for="inputauthorname">Yazar Ad:</label>
                   <input type="text" name="author_name" required value="{{$book->author_name}}"></input>
                   <label for="inputisbn">ISBN:</label>
-                  <input type="text" name="isbn_number" required value="{{$book->ibsn}}"></input>
+                  <input type="text" name="book_ibsn" required value="{{$book->book_ibsn}}"></input>
                   <label for="inputimage">Kapak fotoğrafı:</label>
                   <input type="file" name="image"></input>
-                  <td align="center"><button type="submit" href="{{route('Update')}}">Güncelle</button></td>
+                  <td align="center"><button type="submit" href="{{route('update')}}">Güncelle</button></td>
                   </table>
             </form>
 </body>

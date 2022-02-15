@@ -31,7 +31,6 @@ Route::get("/logout",[Admincontrol::class,'logout'])->name('logout');
 //CRUD
 Route::get("/BookCreate",[BookController::class,'create'])->name('Insert');
 Route::post("/BookCreate",[BookController::class,'bookcreate'])->name('book-create');
-Route::get("/BookUpdate",[BookController::class,'update'])->name('update');
-Route::get("/BookUpdate", function(){return view('Update');})->name('update');
-Route::get("/BookUpdatePage",[BookController::class,'update'])->name('BookUpdate');
-Route::get("/bookdelete",[BookController::class,'destroy'])->name('delete');
+Route::put('bookupdate/{book}',[BookController::class,'update'])->name('update');
+Route::get('/bookupdateform/{book}',[BookController::class,'updateform'])->name('updateform');
+Route::post("/bookdelete",[BookController::class,'delete'])->name('delete');

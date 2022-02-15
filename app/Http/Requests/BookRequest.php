@@ -26,7 +26,7 @@ class BookRequest extends FormRequest
         return [
           "book_name"=>"required|min:2",
           "author_name"=>"required|min:3|max:30",
-          "book_ibsn"=>"required|integer|min:10|max:13"
+          "book_ibsn"=>"required|integer|digits_between:10,13"
         ];
     }
     public function messages()
