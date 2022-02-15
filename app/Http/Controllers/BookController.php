@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Http\Requests\BookRequest;
+use Illuminate\Support\Facades\Storage;
+
 
 class BookController extends Controller
 {
@@ -13,12 +15,15 @@ class BookController extends Controller
     return view('Insert');
   }
 
-  public function bookcreate(BookRequest $request)
+  public function bookCreate(BookRequest $request)
   {
     $book_name= $request->book_name;
     $author_name=$request->author_name;
     $book_ibsn=$request->book_ibsn;
-    $image=$request->image;
+    if ($request->image){
+//      $request->file('image')->storeAs('uploads', $request->image , 'public');
+    Storage::disk('public')->put($request->image, file_get_contents($request->image));
+    }
 
     Book::create([
       'book_name' =>$request->book_name,
@@ -41,7 +46,7 @@ class BookController extends Controller
                    $book->save();
                    return redirect('adminpanel');
            }
-           public function updateform(Book $book)
+           public function updateForm(Book $book)
            {
              return view('update',compact('book'));
            }
@@ -50,19 +55,14 @@ class BookController extends Controller
         $books = Book::all();
         return view('booklist', compact('books'));
       }
-        public function bookshow()
+        public function bookShow()
         {
           $books = Book::all();
           return view('adminpanel', compact('books'));
         }
-        public function destroy(Book $id)
+        public function destroy(Book $book)
     {
-       $book = Book::find($id);
-       Book::where('id',$id)->delete();
+        $book->delete();
        return redirect('adminpanel');
-   }
-   public function bookdestroy(Book $book)
-   {
-     return view('delete',compact('book'));
    }
 }

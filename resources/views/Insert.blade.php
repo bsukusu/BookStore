@@ -51,7 +51,7 @@
             @endforeach
           </ul>
         @endif
-      <form class="form-create" action="{{route('book-create')}}" method="POST">
+      <form class="form-create" action="{{route('book-create')}}" method="POST" enctype='multipart/form-data'>
           @csrf
 
           <label for="inputBookName" class="sr-only">Book Name </label>

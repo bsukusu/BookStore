@@ -26,9 +26,9 @@ class BookRequest extends FormRequest
         return [
           "book_name"=>"required|min:2",
           "author_name"=>"required|min:3|max:30",
-          "book_ibsn"=>"required|integer|digits_between:10,13"
-          'image' => 'image|max:2048',
-          'image.*' => 'mimes:jpeg,jpg,png',
+          "book_ibsn"=>"required|integer|digits_between:10,13",
+          //"image" => "image|max:2048",
+          //"image.*" =>"mimes:jpeg,jpg,png",
         ];
     }
     public function messages()
@@ -37,7 +37,7 @@ class BookRequest extends FormRequest
         'book_name.min'=>'Kitap ismi minimum :min olabilir',
         'author_name.min'=> 'Yazar ismi minimum :min olabilir',
         'author_name.max'=> 'Yazar ismi maksimum :max olabilir',
-        'book_ibsn.numeric'=>'Kitap isbn sayısal değer olmalı.',
+        //'image.*'=> 'Fotoğraf jpeg,jpg,png türünde olmalı',
         'book_ibsn.min'=> ' Kitap isbn minimum :min haneli olabilir',
         'book_ibsn.max'=> 'Kitap isbn maksimum :max haneli olabilir'
       ];

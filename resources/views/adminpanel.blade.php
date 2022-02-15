@@ -35,55 +35,50 @@
       </form>
       </li>
       @endguest
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('Insert')}}">CREATE</a>
+      </li>
     </ul>
   </div>
 </nav>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Book Store</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" href="{{route('Insert')}}">Insert</a>
-    </li>
-
+  
             <div class="panel-body">
                         @if (session('status'))
                             <div class="alert alert-success">
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <table width=100%>
-                            <tr bgcolor="#FFFF00">
-                            <td align="center"><strong>Kitap Ad</strong></td>
-                            <td align="center"><strong>Yazar Ad</strong></td>
-                            <td align="center"><strong>Isbn Numara</strong></td>
-                            <td align="center"><strong>Fotoğraf</strong></td>
+                        <table class="table" width=100%>
+                          <thead>
+                            <tr bgcolor="#EFD6FF">
+                            <th scope="col" align="center"><strong>Kitap Ad</strong></th>
+                            <th scope="col" align="center"><strong>Yazar Ad</strong></th>
+                            <th scope="col" align="center"><strong>Isbn Numara</strong></th>
+                            <th scope="col" align="center"><strong>Fotoğraf</strong></th>
+                          </thead>
                           </tr>
                             @foreach ($books as $book)
-                              <tr height="10">
-                                <tr bgcolor="#FFFF00">
-                                <td align="center"> {{$book->book_name}}</td>
-                                <td align="center"> {{$book->author_name}}</td>
-                                <td align="center"> {{$book->book_ibsn}}</td>
-                                <td align="center" {{$book->image}} </td>
-                                <td align="center">
+                                <tr bgcolor="#EFD6FF">
+                                <th scope="col" align="center"> {{$book->book_name}}</th>
+                                <th scope="col" align="center"> {{$book->author_name}}</th>
+                                <th scope="col" align="center"> {{$book->book_ibsn}}</th>
+                                <th scope="col" align="center" {{$book->image}} </th>
                                   @if(isset($book->image))
-                                    <img align="center" src="{{asset($book->image)}}" width="50">
+                                    <img align="center" src="{{asset('uploads/'.$book->image)}}" width="50">
                                   @endif
                                 </td>
                                 <td>
                                   <a class="btn btn-primary" href="{{route('updateform', $book->id)}}" >
                                     Update </a>
                                 <td>
-                                    <a class="btn btn-danger" type="submit" href="{{route('bookdelete', $book->id)}}"> Sil </a>
+                                  <form method="post" action="{{route('delete',$book->id)}}">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger" type="submit"> Sil </button>
+                                  </form>
                               </tr>
                             @endforeach
                         </table>
-                    </div>
 </body>
 
 </html>
