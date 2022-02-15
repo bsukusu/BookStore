@@ -81,7 +81,7 @@
                                 <td>
                                   <form action="" method="POST">
                                     @csrf
-                                    <button class="btn btn-danger" type="submit" href="{{route('delete',$book->id)}}"> Sil </button>
+                                    <button class="btn btn-danger" type="submit" href=""> Sil </button>
                                   </form>
                               </tr>
                             @endforeach

@@ -31,7 +31,7 @@
                   <input type="text" name="book_ibsn" required value="{{$book->book_ibsn}}"></input>
                   <label for="inputimage">Kapak fotoğrafı:</label>
                   <input type="file" name="image"></input>
-                  <td align="center"><button type="submit" href="{{route('update')}}">Güncelle</button></td>
+                  <td align="center"><button type="submit" href=>Güncelle</button></td>
                   </table>
             </form>
 </body>

@@ -32,7 +32,7 @@ class BookController extends Controller
            {
                    $book->book_name = $request->book_name;
                    $book->author_name = $request->author_name;
-                   $book->book_ibsn = $request->isbn_number;
+                   $book->book_ibsn = $request->book_ibsn;
                    if ($request->hasFile('image')) {
                        $imageName = str_slug($request->name).'.'.$request->image->getClientOriginalExtension();
                        $request->image->move(public_path('uploads'), $imageName);
@@ -55,9 +55,4 @@ class BookController extends Controller
           $books = Book::all();
           return view('adminpanel', compact('books'));
         }
-        public function destroy(Book $id)
-    {
-       $book = Book::find($id);
-       Book::where('id', $id)->delete();
-   }
 }

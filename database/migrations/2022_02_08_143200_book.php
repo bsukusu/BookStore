@@ -16,7 +16,7 @@ class Book extends Migration
         Schema::create('book', function (Blueprint $table) {
             $table->id();
             $table->string('book_name');
-            $table->integer('book_ibsn');
+            $table->bigInteger('book_ibsn');
             $table->string('author_name');
             $table->string('image');
             $table->timestamps();
