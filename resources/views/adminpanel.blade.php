@@ -79,10 +79,7 @@
                                   <a class="btn btn-primary" href="{{route('updateform', $book->id)}}" >
                                     Update </a>
                                 <td>
-                                  <form action="" method="POST">
-                                    @csrf
-                                    <button class="btn btn-danger" type="submit" href=""> Sil </button>
-                                  </form>
+                                    <a class="btn btn-danger" type="submit" href="{{route('bookdelete', $book->id)}}"> Sil </a>
                               </tr>
                             @endforeach
                         </table>

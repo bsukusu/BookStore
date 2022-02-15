@@ -55,4 +55,14 @@ class BookController extends Controller
           $books = Book::all();
           return view('adminpanel', compact('books'));
         }
+        public function destroy(Book $id)
+    {
+       $book = Book::find($id);
+       Book::where('id',$id)->delete();
+       return redirect('adminpanel');
+   }
+   public function bookdestroy(Book $book)
+   {
+     return view('delete',compact('book'));
+   }
 }
