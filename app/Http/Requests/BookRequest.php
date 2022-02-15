@@ -27,8 +27,8 @@ class BookRequest extends FormRequest
           "book_name"=>"required|min:2",
           "author_name"=>"required|min:3|max:30",
           "book_ibsn"=>"required|integer|digits_between:10,13",
-          //"image" => "image|max:2048",
-          //"image.*" =>"mimes:jpeg,jpg,png",
+          "image" => "image|max:2048",
+          "image.*" =>"mimes:jpeg,jpg,png",
         ];
     }
     public function messages()
