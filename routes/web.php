@@ -24,13 +24,13 @@ Route::get("/booklist",[BookController::class,'show'])->name('show');
 Route::get('/booklist', function(){return view('booklist');})->name('booklist');
 
 //Admin kısmı
-Route::get("/adminpanel", [Admincontrol::class,'admin'])->name('adminpanel');
-Route::get("/adminpanel", [BookController::class,'bookShow'])->name('adminpanel');
+Route::get("/adminpanel", [Admincontrol::class,'admin'])->name('adminpanel')->middleware('auth');
+Route::get("/adminpanel", [BookController::class,'bookShow'])->name('adminpanel')->middleware('auth');
 Route::get("/logout",[Admincontrol::class,'logout'])->name('logout');
 
 //CRUD
-Route::get("/book-create",[BookController::class,'create'])->name('Insert');
-Route::post("/book-create",[BookController::class,'bookCreate'])->name('book-create');
-Route::put('book-update/{book}',[BookController::class,'update'])->name('update');
-Route::get('/book-update-form/{book}',[BookController::class,'updateForm'])->name('updateform');
-Route::delete('/book-delete/{book}',[BookController::class,'destroy'])->name('delete');
+Route::get("/book/create",[BookController::class,'create'])->name('Insert')->middleware('auth');
+Route::post("/book-create",[BookController::class,'bookCreate'])->name('book-create')->middleware('auth');
+Route::put('bookupdate/{book}',[BookController::class,'update'])->name('update')->middleware('auth');
+Route::get('/book/{book}/edit',[BookController::class,'updateForm'])->name('updateform')->middleware('auth');
+Route::delete('/bookdelete/{book}',[BookController::class,'destroy'])->name('delete')->middleware('auth');

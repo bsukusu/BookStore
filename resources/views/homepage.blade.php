@@ -43,14 +43,14 @@
                         <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase" href="{{route('homepage')}}">Home</a></li>
 
-                        <!--<li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase" href="">Register</a></li> -->
+                        <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase" href="{{route('register')}}">Register</a></li>
 
                         <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase" href="{{route('booklist')}}">Book List</a></li>
+                        <a class="nav-link text-uppercase" href="{{route('login')}}">Book List</a></li>
 
-                        <!--<li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase" href="">Login</a></li>-->
+                        <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase" href="">Login</a></li>
                     </ul>
                 </div>
             </div>
