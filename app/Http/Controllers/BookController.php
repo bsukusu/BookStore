@@ -17,19 +17,16 @@ class BookController extends Controller
 
   public function bookCreate(BookRequest $request)
   {
-    $book_name= $request->book_name;
-    $author_name=$request->author_name;
-    $book_ibsn=$request->book_ibsn;
     if ($request->image){
-//      $request->file('image')->storeAs('uploads', $request->image , 'public');
-    Storage::disk('public')->put($request->image, file_get_contents($request->image));
-    }
-
+      $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('Image'), $filename);
+}
     Book::create([
       'book_name' =>$request->book_name,
       'author_name'=>$request->author_name,
       'book_ibsn'=>$request->book_ibsn,
-      'image'=>$request->image
+      'image'=>$filename ?? null
       ] );
     }
 
@@ -55,7 +52,7 @@ class BookController extends Controller
         $books = Book::all();
         return view('booklist', compact('books'));
       }
-        public function bookShow()
+        public function bookshow()
         {
           $books = Book::all();
           return view('adminpanel', compact('books'));

@@ -65,7 +65,7 @@
 
   <div class="form-check mb-3">
   <div class="mb-3">
-    <input type="file" name=image class="form-control" aria-label="file example" required>
+    <input type="file" name=image class="form-control" aria-label="file example">
   </div>
   <div class="mb-3">
     <button type="submit">Create</button>

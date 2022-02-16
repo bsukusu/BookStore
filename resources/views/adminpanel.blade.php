@@ -41,7 +41,7 @@
     </ul>
   </div>
 </nav>
-  
+
             <div class="panel-body">
                         @if (session('status'))
                             <div class="alert alert-success">
@@ -64,7 +64,7 @@
                                 <th scope="col" align="center"> {{$book->book_ibsn}}</th>
                                 <th scope="col" align="center" {{$book->image}} </th>
                                   @if(isset($book->image))
-                                    <img align="center" src="{{asset('uploads/'.$book->image)}}" width="50">
+                                    <img align="center" src="{{asset('image/'.$book->image)}}" width="50">
                                   @endif
                                 </td>
                                 <td>
