@@ -11,7 +11,7 @@ class BookController extends Controller
 {
     public function create()
     {
-        return view('Insert');
+        return view('admin.book_create');
     }
 
     public function bookCreate(BookRequest $request)
@@ -27,7 +27,7 @@ class BookController extends Controller
       'book_ibsn'=>$request->book_ibsn,
       'image'=>$filename ?? null
       ]);
-        return redirect('adminpanel')->with('message', 'successfully created.');
+        return redirect('admin.adminpanel')->with('message', 'successfully created.');
     }
 
     public function update(BookRequest $request, Book $book)
@@ -44,11 +44,11 @@ class BookController extends Controller
                  'image'=>$filename ?? $book->image
                  ]);
         ;
-        return redirect('adminpanel')->with('message', 'successfully updated.');
+        return redirect('admin.adminpanel')->with('message', 'successfully updated.');
     }
     public function updateForm(Book $book)
     {
-        return view('update', compact('book'));
+        return view('admin.book_update', compact('book'));
     }
     public function show()
     {
@@ -58,11 +58,11 @@ class BookController extends Controller
     public function bookshow()
     {
         $books = Book::all();
-        return view('adminpanel', compact('books'));
+        return view('admin.adminpanel', compact('books'));
     }
     public function destroy(Book $book)
     {
         $book->delete();
-        return redirect('adminpanel')->with('message', 'successfully deleted.');
+        return redirect('admin.adminpanel')->with('message', 'successfully deleted.');
     }
 }
