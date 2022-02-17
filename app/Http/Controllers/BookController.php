@@ -7,62 +7,62 @@ use App\Models\Book;
 use App\Http\Requests\BookRequest;
 use Illuminate\Support\Facades\Storage;
 
-
 class BookController extends Controller
 {
-  public function create()
-  {
-    return view('Insert');
-  }
+    public function create()
+    {
+        return view('Insert');
+    }
 
-  public function bookCreate(BookRequest $request)
-  {
-    if ($request->image){
-      $file= $request->file('image');
+    public function bookCreate(BookRequest $request)
+    {
+        if ($request->image) {
+            $file= $request->file('image');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $file-> move(public_path('Image'), $filename);
-}
-    Book::create([
+        }
+        Book::create([
       'book_name' =>$request->book_name,
       'author_name'=>$request->author_name,
       'book_ibsn'=>$request->book_ibsn,
       'image'=>$filename ?? null
-      ] );
-      return redirect('adminpanel')->with('message','successfully created.');
+      ]);
+        return redirect('adminpanel')->with('message', 'successfully created.');
     }
 
-        public function update(BookRequest $request, Book $book)
-           {
-                   if ($request->image){
-                          $file= $request->file('image');
-                           $filename= date('YmdHi').$file->getClientOriginalName();
-                           $file-> move(public_path('Image'), $filename);
-               }
-               $book->update([
+    public function update(BookRequest $request, Book $book)
+    {
+        if ($request->image) {
+            $file= $request->file('image');
+            $filename= date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('Image'), $filename);
+        }
+        $book->update([
                  'book_name' =>$request->book_name,
                  'author_name'=>$request->author_name,
                  'book_ibsn'=>$request->book_ibsn,
                  'image'=>$filename ?? $book->image
-                 ] );;
-              return redirect('adminpanel')->with('message','successfully updated.');
-           }
-           public function updateForm(Book $book)
-           {
-             return view('update',compact('book'));
-           }
-           public function show()
-      {
+                 ]);
+        ;
+        return redirect('adminpanel')->with('message', 'successfully updated.');
+    }
+    public function updateForm(Book $book)
+    {
+        return view('update', compact('book'));
+    }
+    public function show()
+    {
         $books = Book::all();
         return view('booklist', compact('books'));
-      }
-        public function bookshow()
-        {
-          $books = Book::all();
-          return view('adminpanel', compact('books'));
-        }
-        public function destroy(Book $book)
+    }
+    public function bookshow()
+    {
+        $books = Book::all();
+        return view('adminpanel', compact('books'));
+    }
+    public function destroy(Book $book)
     {
         $book->delete();
-       return redirect('adminpanel')->with('message','successfully deleted.');
-   }
+        return redirect('adminpanel')->with('message', 'successfully deleted.');
+    }
 }

@@ -33,7 +33,7 @@ class BookRequest extends FormRequest
     }
     public function messages()
     {
-      return [
+        return [
         'book_name.min'=>'Kitap ismi minimum :min olabilir',
         'author_name.min'=> 'Yazar ismi minimum :min olabilir',
         'author_name.max'=> 'Yazar ismi maksimum :max olabilir',

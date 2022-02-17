@@ -8,11 +8,11 @@ class Admincontrol extends Controller
 {
     public function admin()
     {
-      return view('adminpanel');
+        return view('adminpanel');
     }
 
     public function logout()
     {
-      return view('logout');
+        return view('logout');
     }
 }

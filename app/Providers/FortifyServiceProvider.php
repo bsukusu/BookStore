@@ -14,8 +14,6 @@ use Laravel\Fortify\Fortify;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-
-
 class FortifyServiceProvider extends ServiceProvider
 {
     /**
@@ -40,25 +38,21 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
-        Fortify::loginView(function()
-        {
-          return view('login');
+        Fortify::loginView(function () {
+            return view('login');
         });
 
-        Fortify::authenticateUsing(function(request $request)
-        {
-            $user = user::where('email',$request->email)->first();
+        Fortify::authenticateUsing(function (request $request) {
+            $user = user::where('email', $request->email)->first();
 
-            if($user &&
-            Hash::check($request->password, $user->password))
-            {
-              return $user;
+            if ($user &&
+            Hash::check($request->password, $user->password)) {
+                return $user;
             }
         });
 
-        Fortify::registerView(function()
-        {
-          return view('register');
+        Fortify::registerView(function () {
+            return view('register');
         });
 
 
