@@ -12,34 +12,16 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      @guest
       <li class="nav-item">
-        <a class="nav-link" href="{{route('homepage')}}">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{{route('adminpanel')}}">Back <span class="sr-only"></span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{route('register')}}">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{route('login')}}">Login</a>
-      </li>
-      @else
+
       <li class="nav-item">
         <a class="nav-link" href="javascript:void(0)">
           {{auth()->user()->name}}
         </a>
       </li>
-      <!--<li class="nav-item">
-        <a class="nav-link" href="javascript:void(0)" onclick="event.preventDefault();
-        document.getElementById('LogoutForm').submit();">
-        Logout
-      </a> -->
-      <form action="{{route('logout')}}" id="LogoutForm" method="POST">
-        @csrf
-        <li class="nav-item">
-        <a class="nav-link" href="{{route('logout')}}">Logout</a>
-      </form>
-      </li>
-      @endguest
+
     </ul>
   </div>
 </nav>
@@ -63,15 +45,15 @@
                   @csrf
                   <div class="mb-3">
                   <label for="inputbookname">Kitap AD:</label>
-                  <input type="text" name="book_name" required value="{{$book->book_name}}"></input>
+                  <input type="text" name="book_name" required value="{{old('book_name',$book->book_name)}}"></input>
                 </div>
                 <div class="mb-3">
                   <label for="inputauthorname">Yazar Ad:</label>
-                  <input type="text" name="author_name" required value="{{$book->author_name}}"></input>
+                  <input type="text" name="author_name" required value="{{old('author_name',$book->author_name)}}"></input>
                 </div>
                 <div class="mb-3">
                   <label for="inputisbn">ISBN:</label>
-                  <input type="text" name="book_ibsn" required value="{{$book->book_ibsn}}"></input>
+                  <input type="text" name="book_ibsn" required value="{{old('book_ibsn',$book->book_ibsn)}}"></input>
                 </div>
                 <div class="mb-3">
                   <label for="inputimage">Kapak fotoğrafı:</label>

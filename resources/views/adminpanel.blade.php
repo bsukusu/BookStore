@@ -30,7 +30,7 @@
       <form method="POST" action="{{ route('logout') }}" class="mb-0">
           @csrf
           <li class="nav-item">
-          <a href="{{ route('logout') }}" class="logout-menu-btn button" onclick="event.preventDefault();this.closest('form').submit();">
+          <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();this.closest('form').submit();">
               <span>Logout</span>
           </a>
         </li>
@@ -40,11 +40,9 @@
 </nav>
 
             <div class="panel-body">
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+              @if(Session::has('message'))
+              <p class="alert alert-info">{{ Session::get('message') }}</p>
+              @endif
                         <table class="table" width=100%>
                           <thead>
                             <tr bgcolor="#EFD6FF">

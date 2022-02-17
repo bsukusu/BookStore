@@ -40,18 +40,32 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
-                      @guest
+                      
+                      <li class="nav-item px-lg-4">
+                      <a class="nav-link text-uppercase" href="{{route('homepage')}}">Home</a></li>
+
+                      <li class="nav-item px-lg-4">
+                      <a class="nav-link text-uppercase" href="{{route('booklist')}}">Book List</a></li>
+
+                      @auth
+                        <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase" href="{{route('adminpanel')}}">Admin</a></li>
+
+                        <form method="POST" action="{{ route('logout') }}" class="mb-0">
+                        @csrf
+                        <li class="nav-item">
+                        <a class="nav-link text-uppercase" href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();">
+                        <span>Logout</span>
+                        </a>
+                        </li>
+                        </form>
+                      @else
                         <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase" href="{{route('register')}}">Register</a></li>
 
                         <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase" href="{{route('login')}}">Login</a></li>
-                      @endguest
-                        <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase" href="{{route('homepage')}}">Home</a></li>
-
-                        <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase" href="{{route('booklist')}}">Book List</a></li>
+                      @endauth
                     </ul>
                 </div>
             </div>

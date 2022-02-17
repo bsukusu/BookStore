@@ -9,34 +9,15 @@
   <a class="navbar-brand">Book Store</a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      @guest
+
       <li class="nav-item">
-        <a class="nav-link" href="{{route('homepage')}}">Home <span class="sr-only"></span></a>
+        <a class="nav-link" href="{{route('adminpanel')}}">Back <span class="sr-only"></span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{route('register')}}">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{route('login')}}">Login</a>
-      </li>
-      @else
+
       <li class="nav-item">
         <a class="nav-link">
-          {{auth()->user()->name}}
-        </a>
+          {{auth()->user()->name}}</a>
       </li>
-      <!--<li class="nav-item">
-        <a class="nav-link" href="javascript:void(0)" onclick="event.preventDefault();
-        document.getElementById('LogoutForm').submit();">
-        Logout
-      </a> -->
-      <form action="{{route('logout')}}" id="LogoutForm" method="POST">
-        @csrf
-        <li class="nav-item">
-        <a class="nav-link" href="{{route('logout')}}">Logout</a>
-      </form>
-      </li>
-      @endguest
     </ul>
   </div>
 </nav>
@@ -52,17 +33,17 @@
           @csrf
 
           <label for="inputBookName" class="sr-only">Book Name </label>
-          <input type="text" id="inputBookName" name="book_name" class="form-control" placeholder="Book Name" required>
+          <input type="text" id="inputBookName" name="book_name" class="form-control" value="{{ old('book_name') }}" placeholder="Book Name" required>
 
           <label for="inputAuthorName" class="sr-only">Author Name </label>
-          <input type="text" id="inputAuthorName" name="author_name" class="form-control" placeholder="Author Name" required>
+          <input type="text" id="inputAuthorName" name="author_name" class="form-control" placeholder="Author Name" value="{{ old('author_name') }}" required>
 
           <label for="inputibsn" class="sr-only">Book Ibsn </label>
-          <input type="text" id="inputibsn" name="book_ibsn" class="form-control" placeholder="Book Ibsn" required>
+          <input type="text" id="inputibsn" name="book_ibsn" class="form-control" placeholder="Book Ibsn" value="{{ old('book_ibsn') }}"  required>
 
   <div class="form-check mb-3">
   <div class="mb-3">
-    <input type="file" name=image class="form-control" aria-label="file example">
+    <input type="file" name=image class="form-control" aria-label="file example" value="{{ old('image') }}" >
   </div>
   <div class="mb-3">
     <button type="submit">Create</button>

@@ -28,21 +28,23 @@ class BookController extends Controller
       'book_ibsn'=>$request->book_ibsn,
       'image'=>$filename ?? null
       ] );
-      return redirect('adminpanel');
+      return redirect('adminpanel')->with('message','successfully created.');
     }
 
         public function update(BookRequest $request, Book $book)
            {
-                   $book->book_name = $request->book_name;
-                   $book->author_name = $request->author_name;
-                   $book->book_ibsn = $request->book_ibsn;
                    if ($request->image){
                           $file= $request->file('image');
                            $filename= date('YmdHi').$file->getClientOriginalName();
                            $file-> move(public_path('Image'), $filename);
                }
-                   //$book->save();
-                   return redirect('adminpanel');
+               $book->update([
+                 'book_name' =>$request->book_name,
+                 'author_name'=>$request->author_name,
+                 'book_ibsn'=>$request->book_ibsn,
+                 'image'=>$filename ?? $book->image
+                 ] );;
+              return redirect('adminpanel')->with('message','successfully updated.');
            }
            public function updateForm(Book $book)
            {
@@ -61,6 +63,6 @@ class BookController extends Controller
         public function destroy(Book $book)
     {
         $book->delete();
-       return redirect('adminpanel');
+       return redirect('adminpanel')->with('message','successfully deleted.');
    }
 }
