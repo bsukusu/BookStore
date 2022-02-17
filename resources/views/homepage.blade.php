@@ -40,17 +40,18 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto">
-                        <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase" href="{{route('homepage')}}">Home</a></li>
-
+                      @guest
                         <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase" href="{{route('register')}}">Register</a></li>
 
                         <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase" href="{{route('login')}}">Book List</a></li>
+                        <a class="nav-link text-uppercase" href="{{route('login')}}">Login</a></li>
+                      @endguest
+                        <li class="nav-item px-lg-4">
+                        <a class="nav-link text-uppercase" href="{{route('homepage')}}">Home</a></li>
 
                         <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase" href="">Login</a></li>
+                        <a class="nav-link text-uppercase" href="{{route('booklist')}}">Book List</a></li>
                     </ul>
                 </div>
             </div>

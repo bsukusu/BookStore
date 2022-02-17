@@ -6,16 +6,10 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Book Store</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <a class="navbar-brand">Book Store</a>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       @guest
-      <li class="nav-item">
-        <a class="nav-link" href="{{route('homepage')}}">Home <span class="sr-only"></span></a>
-      </li>
       <li class="nav-item">
         <a class="nav-link" href="{{route('register')}}">Register</a>
       </li>
@@ -23,21 +17,24 @@
         <a class="nav-link" href="{{route('login')}}">Login</a>
       </li>
       @else
-      <li class="nav-item">
-        <a class="nav-link" href="javascript:void(0)">
-          {{auth()->user()->name}}
-        </a>
-      </li>
-      <form action="{{route('logout')}}" id="LogoutForm" method="POST">
-        @csrf
         <li class="nav-item">
-        <a class="nav-link" href="{{route('logout')}}">Logout</a>
-      </form>
-      </li>
-      @endguest
+          <a class="nav-link" href="{{route('homepage')}}">Home <span class="sr-only"></span></a>
+        </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('Insert')}}">CREATE</a>
+        <a class="nav-link">{{auth()->user()->name}} </a>
       </li>
+    @endguest
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('create')}}">CREATE</a>
+      </li>
+      <form method="POST" action="{{ route('logout') }}" class="mb-0">
+          @csrf
+          <li class="nav-item">
+          <a href="{{ route('logout') }}" class="logout-menu-btn button" onclick="event.preventDefault();this.closest('form').submit();">
+              <span>Logout</span>
+          </a>
+        </li>
+      </form>
     </ul>
   </div>
 </nav>

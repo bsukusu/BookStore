@@ -32,11 +32,14 @@
                         <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase" href="{{route('homepage')}}">Home</a></li>
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="">Book List</a></li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="{{route('register')}}">Register</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" href="{{route('login')}}">Login</a>
+                        @guest
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{route('register')}}">Register</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link" href="{{route('login')}}">Login</a> </li>
+                        @endguest
+
                     </ul>
                 </div>
             </div>

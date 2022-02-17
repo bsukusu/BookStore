@@ -28,6 +28,7 @@ class BookController extends Controller
       'book_ibsn'=>$request->book_ibsn,
       'image'=>$filename ?? null
       ] );
+      return redirect('adminpanel');
     }
 
         public function update(BookRequest $request, Book $book)
@@ -35,12 +36,12 @@ class BookController extends Controller
                    $book->book_name = $request->book_name;
                    $book->author_name = $request->author_name;
                    $book->book_ibsn = $request->book_ibsn;
-                   if ($request->hasFile('image')) {
-                       $imageName = str_slug($request->name).'.'.$request->image->getClientOriginalExtension();
-                       $request->image->move(public_path('uploads'), $imageName);
-                       $book->image = 'uploads/'.$imageName;
-                   }
-                   $book->save();
+                   if ($request->image){
+                          $file= $request->file('image');
+                           $filename= date('YmdHi').$file->getClientOriginalName();
+                           $file-> move(public_path('Image'), $filename);
+               }
+                   //$book->save();
                    return redirect('adminpanel');
            }
            public function updateForm(Book $book)
