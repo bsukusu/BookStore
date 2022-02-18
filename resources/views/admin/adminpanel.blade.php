@@ -54,9 +54,9 @@
                           </tr>
                             @foreach ($books as $book)
                                 <tr bgcolor="#EFD6FF">
-                                <th scope="col" align="center"> {{$book->book_name}}</th>
+                                <th scope="col" align="center"> {{$book->name}}</th>
                                 <th scope="col" align="center"> {{$book->author_name}}</th>
-                                <th scope="col" align="center"> {{$book->book_ibsn}}</th>
+                                <th scope="col" align="center"> {{$book->isbn}}</th>
                                 <th scope="col" align="center" {{$book->image}} </th>
                                   @if(isset($book->image))
                                     <img align="center" src="{{asset('image/'.$book->image)}}" width="50">

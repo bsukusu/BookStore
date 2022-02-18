@@ -13,10 +13,10 @@ class Book extends Migration
      */
     public function up()
     {
-        Schema::create('book', function (Blueprint $table) {
+        Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('book_name');
-            $table->bigInteger('book_ibsn');
+            $table->string('name');
+            $table->bigInteger('isbn');
             $table->string('author_name');
             $table->string('image')->nullable();
             $table->timestamps();

@@ -33,17 +33,17 @@
           @csrf
 
           <label for="inputBookName" class="sr-only">Book Name </label>
-          <input type="text" id="inputBookName" name="book_name" class="form-control" value="{{ old('book_name') }}" placeholder="Book Name" required>
+          <input type="text" id="inputBookName" name="name" class="form-control" value="{{ old('name') }}" placeholder="Book Name" required>
 
           <label for="inputAuthorName" class="sr-only">Author Name </label>
           <input type="text" id="inputAuthorName" name="author_name" class="form-control" placeholder="Author Name" value="{{ old('author_name') }}" required>
 
           <label for="inputibsn" class="sr-only">Book Ibsn </label>
-          <input type="text" id="inputibsn" name="book_ibsn" class="form-control" placeholder="Book Ibsn" value="{{ old('book_ibsn') }}"  required>
+          <input type="text" id="inputibsn" name="isbn" class="form-control" placeholder="Book Ibsn" value="{{ old('isbn') }}"  required>
 
   <div class="form-check mb-3">
   <div class="mb-3">
-    <input type="file" name=image class="form-control" aria-label="file example" value="{{ old('image') }}" >
+    <input type="file" name="image" class="form-control" aria-label="file example" value="{{ old('image') }}" >
   </div>
   <div class="mb-3">
     <button type="submit">Create</button>

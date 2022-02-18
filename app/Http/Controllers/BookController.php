@@ -22,12 +22,12 @@ class BookController extends Controller
             $file-> move(public_path('Image'), $filename);
         }
         Book::create([
-      'book_name' =>$request->book_name,
+      'name' =>$request->name,
       'author_name'=>$request->author_name,
-      'book_ibsn'=>$request->book_ibsn,
+      'isbn'=>$request->isbn,
       'image'=>$filename ?? null
       ]);
-        return redirect('admin.adminpanel')->with('message', 'successfully created.');
+        return redirect('adminpanel')->with('message', 'successfully created.');
     }
 
     public function update(BookRequest $request, Book $book)
@@ -38,22 +38,22 @@ class BookController extends Controller
             $file-> move(public_path('Image'), $filename);
         }
         $book->update([
-                 'book_name' =>$request->book_name,
+                 'name' =>$request->name,
                  'author_name'=>$request->author_name,
-                 'book_ibsn'=>$request->book_ibsn,
+                 'isbn'=>$request->isbn,
                  'image'=>$filename ?? $book->image
                  ]);
         ;
-        return redirect('admin.adminpanel')->with('message', 'successfully updated.');
+        return redirect('adminpanel')->with('message', 'successfully updated.');
     }
     public function updateForm(Book $book)
     {
-        return view('admin.book_update', compact('book'));
+        return view('book_update', compact('book'));
     }
     public function show()
     {
         $books = Book::all();
-        return view('booklist', compact('books'));
+        return view('admin.booklist', compact('books'));
     }
     public function bookshow()
     {
@@ -63,6 +63,6 @@ class BookController extends Controller
     public function destroy(Book $book)
     {
         $book->delete();
-        return redirect('admin.adminpanel')->with('message', 'successfully deleted.');
+        return redirect('adminpanel')->with('message', 'successfully deleted.');
     }
 }

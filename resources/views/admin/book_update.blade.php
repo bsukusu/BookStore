@@ -13,7 +13,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="{{route('adminpanel')}}">Back <span class="sr-only"></span></a>
+        <a class="nav-link" href="{{route('admin.adminpanel')}}">Back <span class="sr-only"></span></a>
       </li>
 
       <li class="nav-item">
@@ -45,7 +45,7 @@
                   @csrf
                   <div class="mb-3">
                   <label for="inputbookname">Kitap AD:</label>
-                  <input type="text" name="book_name" required value="{{old('book_name',$book->book_name)}}"></input>
+                  <input type="text" name="name" required value="{{old('name',$book->name)}}"></input>
                 </div>
                 <div class="mb-3">
                   <label for="inputauthorname">Yazar Ad:</label>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="mb-3">
                   <label for="inputisbn">ISBN:</label>
-                  <input type="text" name="book_ibsn" required value="{{old('book_ibsn',$book->book_ibsn)}}"></input>
+                  <input type="text" name="isbn" required value="{{old('isbn',$book->isbn)}}"></input>
                 </div>
                 <div class="mb-3">
                   <label for="inputimage">Kapak fotoğrafı:</label>

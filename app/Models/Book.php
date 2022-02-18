@@ -10,6 +10,6 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
-    protected $table="book";
-    protected $fillable=["id","book_name","author_name","book_ibsn","image"];
+    protected $table="books";
+    protected $fillable=["id","name","author_name","isbn","image"];
 }
