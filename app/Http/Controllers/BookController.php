@@ -14,7 +14,7 @@ class BookController extends Controller
         return view('admin.book_create');
     }
 
-    public function bookCreate(BookRequest $request)
+    public function store(BookRequest $request)
     {
         if ($request->image) {
             $file= $request->file('image');
@@ -46,7 +46,7 @@ class BookController extends Controller
         ;
         return redirect('adminpanel')->with('message', 'successfully updated.');
     }
-    public function updateForm(Book $book)
+    public function edit(Book $book)
     {
         return view('book_update', compact('book'));
     }

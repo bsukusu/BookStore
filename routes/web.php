@@ -28,9 +28,9 @@ Route::middleware(['auth'])->group(function(){
   Route::get("/adminpanel", [BookController::class,'bookShow'])->name('adminpanel');
   //Route::get("/logout",[Admincontrol::class,'logout'])->name('logout');
   //CRUD
-  Route::get("/book/create",[BookController::class,'create'])->name('create');
-  Route::post("/book-create",[BookController::class,'bookCreate'])->name('book-create');
-  Route::put('book/update/{book}',[BookController::class,'update'])->name('update');
-  Route::get('/book/{book}/edit',[BookController::class,'updateForm'])->name('updateform');
-  Route::delete('/book/delete/{book}',[BookController::class,'destroy'])->name('delete');
+  Route::get("/books/create",[BookController::class,'create'])->name('create');
+  Route::post("/books",[BookController::class,'store'])->name('book-create');
+  Route::put('books/{book}',[BookController::class,'update'])->name('update');
+  Route::get('/books/{book}/edit',[BookController::class,'edit'])->name('book-update');
+  Route::delete('/books/{book}',[BookController::class,'destroy'])->name('delete');
 });
