@@ -35,10 +35,14 @@
           <label for="inputBookName" class="sr-only">Book Name </label>
           <input type="text" id="inputBookName" name="name" class="form-control" value="{{ old('name') }}" placeholder="Book Name" required>
 
-          <label for="inputAuthorName" class="sr-only">Author Name </label>
-          <input type="text" id="inputAuthorName" name="author_id" class="form-control" placeholder="Author Name" value="{{ old('author_id') }}" required>
+          <label for="authors"></label>
+          <select name="" id="author_id">
+            @foreach ($authors as $author)
+              <option value="{{$author->id}}">{{$author->name}}</option>
+            @endforeach
+            </select>
 
-          <label for="inputibsn" class="sr-only">Book Ibsn </label>
+        <!--  <label for="inputibsn" class="sr-only">Book Ibsn </label> -->
           <input type="text" id="inputibsn" name="isbn" class="form-control" placeholder="Book Ibsn" value="{{ old('isbn') }}"  required>
 
   <div class="form-check mb-3">

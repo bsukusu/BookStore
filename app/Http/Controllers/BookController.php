@@ -10,8 +10,10 @@ use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
-    public function create()
+    public function create(Author $authors)
     {
+        $authors = Author::all();
+        return view('admin.book_create', compact('authors'));
         return view('admin.book_create');
     }
 
@@ -24,7 +26,7 @@ class BookController extends Controller
         }
         Book::create([
       'name' =>$request->name,
-      'author_id'=>$request->author_id,
+      'author_id'=>$request->id,
       'isbn'=>$request->isbn,
       'image'=>$filename ?? null
       ]);
@@ -47,9 +49,11 @@ class BookController extends Controller
         ;
         return redirect('adminpanel')->with('message', 'successfully updated.');
     }
-    public function edit(Book $book)
+    public function edit(Book $book, Author $authors)
     {
-        return view('admin.book-update', compact('book'));
+        $authors = Author::all();
+        return view('admin.book_update', compact('authors'));
+        return view('admin.book_update', compact('book'));
     }
     public function show()
     {

@@ -25,7 +25,7 @@ class BookRequest extends FormRequest
     {
         return [
           "name"=>"required|min:2",
-          "author_id"=>"required|integer",
+          "author_id" => "exists:books",
           "isbn"=>"required|integer|digits_between:10,13",
           "image" => "image|nullable|max:2048",
           "image.*" =>"mimes:jpeg,jpg,png",
@@ -35,8 +35,6 @@ class BookRequest extends FormRequest
     {
         return [
         'name.min'=>'Kitap ismi minimum :min olabilir',
-        //'author_name.min'=> 'Yazar ismi minimum :min olabilir',
-        //'author_name.max'=> 'Yazar ismi maksimum :max olabilir',
         'image.*'=> 'Fotoğraf jpeg,jpg,png türünde olmalı',
         'isbn.min'=> ' Kitap isbn minimum :min haneli olabilir',
         'isbn.max'=> 'Kitap isbn maksimum :max haneli olabilir'
