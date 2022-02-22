@@ -61,7 +61,7 @@
                         @foreach ($books as $book)
                             <tr bgcolor="white">
                             <td align="center"> {{$book->name}}</td>
-                            <td align="center"> {{$book->author_name}}</td>
+                            <td align="center"> {{$book->author}}</td>
                             <td align="center" height=50> {{$book->isbn}}</td>
                           </tr>
                         @endforeach

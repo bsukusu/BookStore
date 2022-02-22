@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Author;
 use App\Http\Requests\BookRequest;
 use Illuminate\Support\Facades\Storage;
 
@@ -23,7 +24,7 @@ class BookController extends Controller
         }
         Book::create([
       'name' =>$request->name,
-      'author_name'=>$request->author_name,
+      'author_id'=>$request->author_id,
       'isbn'=>$request->isbn,
       'image'=>$filename ?? null
       ]);
@@ -39,7 +40,7 @@ class BookController extends Controller
         }
         $book->update([
                  'name' =>$request->name,
-                 'author_name'=>$request->author_name,
+                 'author_id'=>$request->author_id,
                  'isbn'=>$request->isbn,
                  'image'=>$filename ?? $book->image
                  ]);
@@ -48,12 +49,12 @@ class BookController extends Controller
     }
     public function edit(Book $book)
     {
-        return view('book_update', compact('book'));
+        return view('admin.book-update', compact('book'));
     }
     public function show()
     {
         $books = Book::all();
-        return view('admin.booklist', compact('books'));
+        return view('books', compact('books'));
     }
     public function bookshow()
     {

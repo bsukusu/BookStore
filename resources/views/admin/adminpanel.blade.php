@@ -25,7 +25,10 @@
       </li>
     @endguest
       <li class="nav-item">
-        <a class="nav-link" href="{{route('create')}}">CREATE</a>
+        <a class="nav-link" href="{{route('create')}}">BOOK CREATE</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('authorslist')}}">AUTHOR</a>
       </li>
       <form method="POST" action="{{ route('logout') }}" class="mb-0">
           @csrf
@@ -55,7 +58,7 @@
                             @foreach ($books as $book)
                                 <tr bgcolor="#EFD6FF">
                                 <th scope="col" align="center"> {{$book->name}}</th>
-                                <th scope="col" align="center"> {{$book->author_name}}</th>
+                                <th scope="col" align="center"> {{$book->author->name}}</th>
                                 <th scope="col" align="center"> {{$book->isbn}}</th>
                                 <th scope="col" align="center" {{$book->image}} </th>
                                   @if(isset($book->image))
@@ -63,7 +66,7 @@
                                   @endif
                                 </td>
                                 <td>
-                                  <a class="btn btn-primary" href="{{route('updateform', $book->id)}}" >
+                                  <a class="btn btn-primary" href="{{route('book-update', $book->id)}}" >
                                     Update </a>
                                 <td>
                                   <form method="post" action="{{route('delete',$book->id)}}">

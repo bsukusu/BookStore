@@ -34,7 +34,7 @@
 
                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{route('register')}}">Register</a></li>
 
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{route('booklist')}}">Book List</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{route('books')}}">Book List</a></li>
 
                         <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{route('login')}}">login</a></li>
                     </ul>

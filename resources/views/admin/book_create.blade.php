@@ -36,7 +36,7 @@
           <input type="text" id="inputBookName" name="name" class="form-control" value="{{ old('name') }}" placeholder="Book Name" required>
 
           <label for="inputAuthorName" class="sr-only">Author Name </label>
-          <input type="text" id="inputAuthorName" name="author_name" class="form-control" placeholder="Author Name" value="{{ old('author_name') }}" required>
+          <input type="text" id="inputAuthorName" name="author_id" class="form-control" placeholder="Author Name" value="{{ old('author_id') }}" required>
 
           <label for="inputibsn" class="sr-only">Book Ibsn </label>
           <input type="text" id="inputibsn" name="isbn" class="form-control" placeholder="Book Ibsn" value="{{ old('isbn') }}"  required>
