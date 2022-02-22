@@ -30,10 +30,10 @@ class BookController extends Controller
       'isbn'=>$request->isbn,
       'image'=>$filename ?? null
       ]);
-        return redirect('adminpanel')->with('message', 'successfully created.');
+        return redirect('books')->with('message', 'successfully created.');
     }
 
-    public function update(BookRequest $request, Book $book)
+    public function update(BookRequest $request, Book $book, Author $authors)
     {
         if ($request->image) {
             $file= $request->file('image');
@@ -46,27 +46,24 @@ class BookController extends Controller
                  'isbn'=>$request->isbn,
                  'image'=>$filename ?? $book->image
                  ]);
-        return redirect('adminpanel')->with('message', 'successfully updated.');
+        return redirect('books')->with('message', 'successfully updated.');
     }
-    public function edit(Book $book, Author $authors)
+    public function edit(BookRequest $request, Book $book, Author $authors)
     {
         $authors = Author::all();
-        return view('admin.book_update', compact('authors'));
-        return view('admin.book_update', compact('book'));
+        return view('admin.book-update', compact('authors'));
+        return view('admin.book-update', compact('book'));
     }
+
     public function show()
     {
         $books = Book::all();
         return view('books', compact('books'));
     }
-    public function bookshow()
-    {
-        $books = Book::all();
-        return view('admin.adminpanel', compact('books'));
-    }
+
     public function destroy(Book $book)
     {
         $book->delete();
-        return redirect('adminpanel')->with('message', 'successfully deleted.');
+        return redirect('books')->with('message', 'successfully deleted.');
     }
 }

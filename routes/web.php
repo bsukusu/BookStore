@@ -19,10 +19,9 @@ use App\Http\Controllers\AuthorController;
 //});
 Route::redirect('/', '/homepage');
 Route::get('/homepage', function(){return view('homepage');})->name('homepage');
-Route::get("/book/list",[BookController::class,'show'])->name('books');
+Route::get("/books", [BookController::class,'show'])->name('books');
 
 Route::middleware(['auth'])->group(function(){
-  Route::get("/adminpanel", [BookController::class,'bookShow'])->name('adminpanel');
   //CRUD
   Route::get("/books/create",[BookController::class,'create'])->name('create');
   Route::post("/books",[BookController::class,'store'])->name('book-create');

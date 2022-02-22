@@ -49,7 +49,7 @@
 
                       @auth
                         <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase" href="{{route('adminpanel')}}">Admin</a></li>
+                        <a class="nav-link text-uppercase" href="{{route('books')}}">Admin</a></li>
 
                         <form method="POST" action="{{ route('logout') }}" class="mb-0">
                         @csrf

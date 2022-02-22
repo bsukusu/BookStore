@@ -1,7 +1,7 @@
 <html>
 
 <head>
- <title> Admin panel </title>
+ <title> </title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
@@ -13,7 +13,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="{{route('adminpanel')}}">Back <span class="sr-only"></span></a>
+        <a class="nav-link" href="{{route('books')}}">Back <span class="sr-only"></span></a>
       </li>
 
       <li class="nav-item">
@@ -47,10 +47,12 @@
                   <label for="inputbookname">Kitap AD:</label>
                   <input type="text" name="name" required value="{{old('name',$book->name)}}"></input>
                 </div>
-                <div class="mb-3">
-                  <label for="inputauthorname">Yazar Ad:</label>
-                  <input type="text" name="author_name" required value="{{old('author_name',$book->author_name)}}"></input>
-                </div>
+                <label for="authors"></label>
+                <select name="author_id" id="author_id">
+                  @foreach ($authors as $author)
+                    <option value="{{$author->id}}">{{$author->name}}</option>
+                  @endforeach
+                  </select>
                 <div class="mb-3">
                   <label for="inputisbn">ISBN:</label>
                   <input type="text" name="isbn" required value="{{old('isbn',$book->isbn)}}"></input>
