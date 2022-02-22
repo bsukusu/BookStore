@@ -25,7 +25,7 @@ class BookRequest extends FormRequest
     {
         return [
           "name"=>"required|min:2",
-          "author_id" => "exists:books",
+          "id" => "exists:authors",
           "isbn"=>"required|integer|digits_between:10,13",
           "image" => "image|nullable|max:2048",
           "image.*" =>"mimes:jpeg,jpg,png",

@@ -1,7 +1,7 @@
 <html>
 
 <head>
- <title> Admin panel </title>
+ <title>  </title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
@@ -11,7 +11,7 @@
     <ul class="navbar-nav">
 
       <li class="nav-item">
-        <a class="nav-link" href="{{route('adminpanel')}}">Back <span class="sr-only"></span></a>
+        <a class="nav-link" href="{{route('authors')}}">Back <span class="sr-only"></span></a>
       </li>
 
       <li class="nav-item">
@@ -29,30 +29,15 @@
             @endforeach
           </ul>
         @endif
-      <form class="form-create" action="{{route('book-create')}}" method="POST" enctype='multipart/form-data'>
+      <form class="form-create" action="{{route('author-create')}}" method="POST" enctype='multipart/form-data'>
           @csrf
 
-          <label for="inputBookName" class="sr-only">Book Name </label>
+          <label for="inputBookName" class="sr-only">Author Name </label>
           <input type="text" id="inputBookName" name="name" class="form-control" value="{{ old('name') }}" placeholder="Book Name" required>
 
-          <label for="authors"></label>
-          <select name="author_id" id="author_id">
-            @foreach ($authors as $author)
-              <option value="{{$author->id}}">{{$author->name}}</option>
-            @endforeach
-            </select>
-
-        <!--  <label for="inputibsn" class="sr-only">Book Ibsn </label> -->
-          <input type="text" id="inputibsn" name="isbn" class="form-control" placeholder="Book Ibsn" value="{{ old('isbn') }}"  required>
-
-  <div class="form-check mb-3">
-  <div class="mb-3">
-    <input type="file" name="image" class="form-control" aria-label="file example" value="{{ old('image') }}" >
-  </div>
   <div class="mb-3">
     <button type="submit">Create</button>
   </div>
-</div>
 </form>
 </body>
 

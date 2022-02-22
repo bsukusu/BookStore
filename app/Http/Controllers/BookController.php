@@ -26,7 +26,7 @@ class BookController extends Controller
         }
         Book::create([
       'name' =>$request->name,
-      'author_id'=>$request->id,
+      'author_id'=>$request->author_id,
       'isbn'=>$request->isbn,
       'image'=>$filename ?? null
       ]);
@@ -46,7 +46,6 @@ class BookController extends Controller
                  'isbn'=>$request->isbn,
                  'image'=>$filename ?? $book->image
                  ]);
-        ;
         return redirect('adminpanel')->with('message', 'successfully updated.');
     }
     public function edit(Book $book, Author $authors)

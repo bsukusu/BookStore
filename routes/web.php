@@ -30,5 +30,11 @@ Route::middleware(['auth'])->group(function(){
   Route::get('/books/{book}/edit',[BookController::class,'edit'])->name('book-update');
   Route::delete('/books/{book}',[BookController::class,'destroy'])->name('delete');
 
-  Route::get('authors',function(){return view('authorslist');})->name('authorslist');
+//Author
+  Route::get("/authors",[AuthorController::class,'show'])->name('authors');
+  Route::get("/authors/create",[AuthorController::class,'create'])->name('authorcreate');
+  Route::post("/authors",[AuthorController::class,'store'])->name('author-create');
+  Route::delete('/authors/{authtor}',[AuthorController::class,'destroy'])->name('author-delete');
+  Route::put('authors/{author}',[AuthorController::class,'update'])->name('authorupdate');
+  Route::get('/authors/{author}/edit',[AuthorController::class,'edit'])->name('author-update');
 });

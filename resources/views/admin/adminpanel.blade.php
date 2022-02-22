@@ -28,7 +28,7 @@
         <a class="nav-link" href="{{route('create')}}">BOOK CREATE</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('authorslist')}}">AUTHOR</a>
+        <a class="nav-link" href="{{route('authors')}}">AUTHOR</a>
       </li>
       <form method="POST" action="{{ route('logout') }}" class="mb-0">
           @csrf
@@ -60,7 +60,7 @@
                                 <th scope="col" align="center"> {{$book->name}}</th>
                                 <th scope="col" align="center"> {{$book->author->name}}</th>
                                 <th scope="col" align="center"> {{$book->isbn}}</th>
-                                <th scope="col" align="center" {{$book->image}} </th>
+                                <th scope="col" align="center"> {{$book->image}} </th>
                                   @if(isset($book->image))
                                     <img align="center" src="{{asset('image/'.$book->image)}}" width="50">
                                   @endif
