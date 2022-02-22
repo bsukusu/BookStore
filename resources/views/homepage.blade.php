@@ -48,9 +48,6 @@
                       <a class="nav-link text-uppercase" href="{{route('books')}}">Book List</a></li>
 
                       @auth
-                        <li class="nav-item px-lg-4">
-                        <a class="nav-link text-uppercase" href="{{route('books')}}">Admin</a></li>
-
                         <form method="POST" action="{{ route('logout') }}" class="mb-0">
                         @csrf
                         <li class="nav-item">

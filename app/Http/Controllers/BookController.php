@@ -14,7 +14,6 @@ class BookController extends Controller
     {
         $authors = Author::all();
         return view('admin.book_create', compact('authors'));
-        return view('admin.book_create');
     }
 
     public function store(BookRequest $request)
@@ -33,7 +32,7 @@ class BookController extends Controller
         return redirect('books')->with('message', 'successfully created.');
     }
 
-    public function update(BookRequest $request, Book $book, Author $authors)
+    public function update(BookRequest $request, Book $book)
     {
         if ($request->image) {
             $file= $request->file('image');
@@ -48,13 +47,11 @@ class BookController extends Controller
                  ]);
         return redirect('books')->with('message', 'successfully updated.');
     }
-    public function edit(BookRequest $request, Book $book, Author $authors)
+    public function edit(Book $book, Author $authors)
     {
         $authors = Author::all();
-        return view('admin.book-update', compact('authors'));
-        return view('admin.book-update', compact('book'));
+        return view('admin.book_update', compact(['books,author']));
     }
-
     public function show()
     {
         $books = Book::all();

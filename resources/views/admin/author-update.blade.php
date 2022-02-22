@@ -47,7 +47,7 @@
                   <label for="inputbookname">Author name:</label>
                   <input type="text" name="name" required value="{{old('name',$author->name)}}"></input>
                 </div>
-                  <button type="submit" href=>Güncelle</button>
+                  <button type="submit" href="">Güncelle</button>
                   </table>
             </form>
 </body>

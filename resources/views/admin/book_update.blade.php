@@ -38,7 +38,7 @@
                       @endforeach
                   </div>
 
-            <form method="post" action="{{route('update',[$book->id])}}" enctype="multipart/form-data">
+            <form method="post" action="{{route('book_update',[$book->id])}}" enctype="multipart/form-data">
                 <table align = "center">
                   {{ method_field('PUT') }}
                   {{ csrf_field() }}
@@ -61,7 +61,7 @@
                   <label for="inputimage">Kapak fotoğrafı:</label>
                   <input type="file" name="image"></input>
                 </div>
-                  <button type="submit" href=>Güncelle</button>
+                  <button type="submit" href=""> Güncelle</button>
                   </table>
             </form>
 </body>

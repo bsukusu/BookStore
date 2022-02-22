@@ -23,7 +23,8 @@ class CreateBooks extends Migration
 
             $table->foreign('author_id')
                 ->references('id')
-                ->on('authors');
+                ->on('authors')
+                ->onDelete('cascade');
         });
     }
 
