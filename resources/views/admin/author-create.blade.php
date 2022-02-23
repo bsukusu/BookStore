@@ -32,8 +32,8 @@
       <form class="form-create" action="{{route('author-create')}}" method="POST" enctype='multipart/form-data'>
           @csrf
 
-          <label for="inputBookName" class="sr-only">Author Name </label>
-          <input type="text" id="inputBookName" name="name" class="form-control" value="{{ old('name') }}" placeholder="Book Name" required>
+          <label for="inputAuthorName" class="sr-only">Author Name </label>
+          <input type="text" id="inputAuthorName" name="name" class="form-control" value="{{ old('name') }}" placeholder="Author Name" required>
 
   <div class="mb-3">
     <button type="submit">Create</button>

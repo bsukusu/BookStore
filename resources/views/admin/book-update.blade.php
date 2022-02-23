@@ -13,7 +13,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="{{route('authors')}}">Back <span class="sr-only"></span></a>
+        <a class="nav-link" href="{{route('books')}}">Back <span class="sr-only"></span></a>
       </li>
 
       <li class="nav-item">
@@ -38,16 +38,30 @@
                       @endforeach
                   </div>
 
-            <form method="post" action="{{route('authors-update',[$author->id])}}" enctype="multipart/form-data">
+            <form method="post" action="{{route('book-update',[$book->id])}}" enctype="multipart/form-data">
                 <table align = "center">
                   {{ method_field('PUT') }}
                   {{ csrf_field() }}
                   @csrf
                   <div class="mb-3">
-                  <label for="inputbookname">Author name:</label>
-                  <input type="text" name="name" required value="{{old('name',$author->name)}}"></input>
+                  <label for="inputbookname">Kitap AD:</label>
+                  <input type="text" name="name" required value="{{old('name',$book->name)}}"></input>
                 </div>
-                  <button type="submit" href="">Güncelle</button>
+                <label for="authors"></label>
+                <select name="author_id" id="author_id">
+                  @foreach ($authors as $author)
+                    <option value="{{$author->id}}" @if (old('author_id') == $author->id) selected="selected" @endif> {{$author->name}}</option>
+                  @endforeach
+                  </select>
+                <div class="mb-3">
+                  <label for="inputisbn">ISBN:</label>
+                  <input type="text" name="isbn" required value="{{old('isbn',$book->isbn)}}"></input>
+                </div>
+                <div class="mb-3">
+                  <label for="inputimage">Kapak fotoğrafı:</label>
+                  <input type="file" name="image"></input>
+                </div>
+                  <button type="submit" href=""> Güncelle</button>
                   </table>
             </form>
 </body>

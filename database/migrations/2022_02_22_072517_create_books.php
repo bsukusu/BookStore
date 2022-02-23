@@ -16,7 +16,7 @@ class CreateBooks extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('isbn');
+            $table->string('isbn');
             $table->unsignedBigInteger('author_id');
             $table->string('image')->nullable();
             $table->timestamps();

@@ -25,7 +25,7 @@
       </li>
     @endguest
       <li class="nav-item">
-        <a class="nav-link" href="{{route('authorcreate')}}">AUTHOR CREATE</a>
+        <a class="nav-link" href="{{route('authors-create')}}">AUTHOR CREATE</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{route('books')}}">Back</a>

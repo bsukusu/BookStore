@@ -8,12 +8,12 @@ use App\Http\Requests\AuthorRequest;
 
 class AuthorController extends Controller
 {
-    public function show(Author $authors)
+    public function index()
     {
         $authors = Author::all();
         return view('authors', compact('authors'));
     }
-    public function create(Author $authors)
+    public function create()
     {
         return view('admin.author-create');
     }
@@ -39,7 +39,6 @@ class AuthorController extends Controller
     }
     public function edit(Author $author)
     {
-        $author = Author::all()->first();
         return view('admin.author-update', compact('author'));
     }
 }

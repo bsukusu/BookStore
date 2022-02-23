@@ -38,7 +38,7 @@
           <label for="authors"></label>
           <select name="author_id" id="author_id">
             @foreach ($authors as $author)
-              <option value="{{$author->id}}">{{$author->name}}</option>
+            <option value="{{$author->id}}" @if (old('author_id') == $author->id) selected="selected" @endif> {{$author->name}}</option>
             @endforeach
             </select>
 
