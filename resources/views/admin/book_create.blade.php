@@ -47,7 +47,7 @@
 
   <div class="form-check mb-3">
   <div class="mb-3">
-    <input type="file" name="image" class="form-control" aria-label="file example" value="{{ old('image') }}" >
+    <input type="file" name="image" class="form-control" aria-label="file example" value="{{'image'}}" >
   </div>
   <div class="mb-3">
     <button type="submit">Create</button>
