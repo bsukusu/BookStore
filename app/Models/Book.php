@@ -10,8 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
-    protected $fillable=["id","name","author_id","isbn","image"];
-
+    protected $guarded=[]; 
     public function author()
     {
         return $this->hasOne(Author::class, 'id', 'author_id');

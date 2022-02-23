@@ -43,7 +43,7 @@
             </select>
 
         <!--  <label for="inputibsn" class="sr-only">Book Ibsn </label> -->
-          <input type="text" id="inputibsn" name="isbn" class="form-control" placeholder="Book Ibsn" value="{{ old('isbn') }}"  required>
+          <input type="text" id="inputibsn" name="isbn" class="form-control" placeholder="Isbn" value="{{ old('isbn') }}"  required>
 
   <div class="form-check mb-3">
   <div class="mb-3">

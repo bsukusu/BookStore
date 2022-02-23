@@ -33,7 +33,7 @@
           @csrf
 
           <label for="inputAuthorName" class="sr-only">Author Name </label>
-          <input type="text" id="inputAuthorName" name="name" class="form-control" value="{{ old('name') }}" placeholder="Author Name" required>
+          <input type="text" id="inputAuthorName" name="name" class="form-control" value="{{ old('name') }}" placeholder="Author Name">
 
   <div class="mb-3">
     <button type="submit">Create</button>

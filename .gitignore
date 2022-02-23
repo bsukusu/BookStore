@@ -2,6 +2,7 @@
 /public/hot
 /public/storage
 /public/image
+.php-cs-fixer.cache
 /storage/*.key
 /vendor
 .env

@@ -30,7 +30,8 @@ class AuthorRequest extends FormRequest
     public function messages()
     {
         return [
-        'name.min'=>'Yazar ismi minimum :min olabilir'
+        'name.min'=>'Yazar ismi minimum :min olabilir',
+        'name.required'=>'Yazar ismi boş bırakılamaz.'
       ];
     }
 }

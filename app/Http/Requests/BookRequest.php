@@ -34,7 +34,13 @@ class BookRequest extends FormRequest
     public function messages()
     {
         return [
+        'name.required' => "Kitap ismi boş bırakılamaz.",
         'name.min'=>'Kitap ismi minimum :min olabilir',
+        'author_id.required' => "Yazar ismi boş bırakılamaz.",
+        'author_id.exists' => "Geçersiz yazar.",
+        'isbn.required' => "Kitap ibsn ismi boş bırakılamaz.",
+        'isbn.integer' => "isbn sayısal değer olmalı.",
+        'isbn.digits_between' => "Isbn numarası 10 veya 13 haneli olmalı.",
         'image.*'=> 'Fotoğraf jpeg,jpg,png türünde olmalı',
         'isbn.min'=> ' Kitap isbn minimum :min haneli olabilir',
         'isbn.max'=> 'Kitap isbn maksimum :max haneli olabilir'

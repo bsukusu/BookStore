@@ -49,7 +49,7 @@ class BookController extends Controller
                  ]);
         return redirect('books')->with('message', 'successfully updated.');
     }
-    public function edit(Book $book, Author $authors)
+    public function edit(Book $book)
     {
         $authors = Author::all();
         return view('admin.book-update', compact(['book','authors']));
