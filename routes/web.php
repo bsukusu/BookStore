@@ -1,12 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admincontrol;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CrudOperator;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\AuthorController;
 
 /*
-|--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |3
@@ -19,14 +17,23 @@ use App\Http\Controllers\CrudOperator;
 //Route::get('/', function () {
   //  return view('welcome');
 //});
-
+Route::redirect('/', '/homepage');
 Route::get('/homepage', function(){return view('homepage');})->name('homepage');
-Route::get('/booklist', function(){return view('booklist');})->name('booklist');
+Route::get("/books", [BookController::class,'index'])->name('books');
 
+Route::middleware(['auth'])->group(function(){
+  //CRUD
+  Route::get("/books/create",[BookController::class,'create'])->name('create');
+  Route::post("/books",[BookController::class,'store'])->name('book-create');
+  Route::put('books/{book}',[BookController::class,'update'])->name('book-update');
+  Route::get('/books/{book}/edit',[BookController::class,'edit'])->name('update');
+  Route::delete('/books/{book}',[BookController::class,'destroy'])->name('delete');
 
-Route::get("/adminpanel", [Admincontrol::class,'admin'])->name('adminpanel');
-Route::get("/logout",[Admincontrol::class,'logout'])->name('logout');
-Route::get("/AdminCrudInsert",[CrudOperator::class,'create'])->name('Insert');
-Route::post("/AdminCrudInsert",[CrudOperator::class,'bookcreate'])->name('BookCreate');
-Route::get("/AdminCrudUpdate",[CrudOperator::class,'update'])->name('Update');
-Route::get("/AdminCrudDelete",[CrudOperator::class,'delete'])->name('Delete');
+//Author
+  Route::get("/authors",[AuthorController::class,'index'])->name('authors');
+  Route::get("/authors/create",[AuthorController::class,'create'])->name('authors-create');
+  Route::post("/authors",[AuthorController::class,'store'])->name('author-create');
+  Route::delete('/authors/{author}',[AuthorController::class,'destroy'])->name('author-delete');
+  Route::put('authors/{author}',[AuthorController::class,'update'])->name('authors-update');
+  Route::get('/authors/{author}/edit',[AuthorController::class,'edit'])->name('author-update');
+});

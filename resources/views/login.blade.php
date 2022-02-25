@@ -32,11 +32,11 @@
                         <li class="nav-item px-lg-4">
                         <a class="nav-link text-uppercase" href="{{route('homepage')}}">Home</a></li>
 
-                      <!--  <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="">Register</a></li> -->
+                       <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{route('register')}}">Register</a></li>
 
-                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{route('booklist')}}">Book List</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{route('books')}}">Book List</a></li>
 
-                        <!--<li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="">login</a></li> -->
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href="{{route('login')}}">login</a></li>
                     </ul>
                 </div>
             </div>
@@ -49,7 +49,7 @@
 					Account Login
 				</span>
         <form class="form-login" action="{{route('login')}}" method="POST">
-          @csrf
+        @csrf
         <label for="inputEmail" class="sr-only">Email adress </label>
         <input type="text" id="inputEmail" name="email" class="form-control" placeholder="Email adress" required>
 
